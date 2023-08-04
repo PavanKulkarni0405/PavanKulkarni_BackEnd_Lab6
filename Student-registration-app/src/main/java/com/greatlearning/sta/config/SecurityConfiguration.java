@@ -49,10 +49,10 @@ public class SecurityConfiguration {
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		http.authorizeRequests().antMatchers("/h2-console**", "/login**", "/logout**").permitAll()
-				.antMatchers(HttpMethod.GET, "/students**", "/students/**").hasAnyRole("USER", "ADMIN", "SUPER_ADMIN")
-				.antMatchers(HttpMethod.POST, "/students**").hasAnyRole("ADMIN", "SUPER_ADMIN")
-				.antMatchers(HttpMethod.PUT, "/students/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/students/**").hasRole("SUPER_ADMIN").anyRequest().fullyAuthenticated()
+				.antMatchers(HttpMethod.GET, "/api/student**", "/api/student/**").hasAnyRole("USER", "ADMIN", "SUPER_ADMIN")
+				.antMatchers(HttpMethod.POST, "/api/student**").hasAnyRole("ADMIN", "SUPER_ADMIN")
+				.antMatchers(HttpMethod.PUT, "/api/student/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
+				.antMatchers(HttpMethod.DELETE, "/api/student/**").hasRole("SUPER_ADMIN").anyRequest().fullyAuthenticated()
 				.and().httpBasic();
 
 		return http.build();
