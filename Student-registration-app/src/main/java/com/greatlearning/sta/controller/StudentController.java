@@ -28,7 +28,7 @@ public class StudentController {
 	}
 	
 	@PostMapping
-	public Student createStudent(Student student) {
+	public Student createStudent(@RequestBody Student student) {
 		return this.studentService.CreateStudent(student);
 	}
 	
